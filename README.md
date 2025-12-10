@@ -154,8 +154,8 @@ flutterfire configure
 ```bash
 flutter run
 ```
-### 3. Tự đánh giá điểm: 8/10
-##### Cơ sở đánh giá: Ứng dụng đáp ứng các tiêu chí về build thành công, kiểm thử tự động, CRUD đầy đủ và tích hợp hoàn chỉnh với Firebase/Cloud Firestore, bao gồm cả xử lý lỗi cơ bản.
+### 3. Tự đánh giá điểm: 10/10
+##### Cơ sở đánh giá: Ứng dụng đáp ứng các tiêu chí về build thành công, kiểm thử tự động, CRUD đầy đủ và tích hợp hoàn chỉnh với Firebase/Cloud Firestore, bao gồm cả xử lý lỗi cơ bản, Kiểm thử tự động hoàn toàn bằng GitHub Actions CI/CD
 
 - Đạt 5/10: Build thành công và kiểm thử cơ bản chạy được (GitHub Actions Success).
 
@@ -164,6 +164,8 @@ flutter run
 - Đạt 7/10: Hoàn thành CRUD và quản lý trạng thái (real-time update, phản hồi thân thiện).
 
 - Đạt 8/10: Hoàn thành CRUD, trạng thái, và tích hợp API/CSDL (Cloud Firestore) với xử lý lỗi cơ bản.
+- Đạt 9/10: Kiểm thử tự động toàn diện và giao diện hoàn thiện
+- Đạt 10/10: Kiểm thử và tối ưu hóa hoàn chỉnh, UI/UX mượt mà, CI/CD ổn định
 ## Yêu cầu nộp bài
 - **Source code**: Đẩy toàn bộ mã nguồn lên GitHub repository cá nhân và chia sẻ quyền truy cập.
 - **Kiểm thử tự động**: Sinh viên cần viết các bài kiểm thử tự động cho ứng dụng. Các bài kiểm thử cần được tổ chức rõ ràng và dễ hiểu trong thư mục `test` với hậu tố `_test.dart`. Các bài kiểm thử đơn vị (unit test) cần kiểm tra các chức năng cơ bản của ứng dụng và đảm bảo chất lượng mã nguồn. Kiểm thử UI (widget test) cần được viết để kiểm tra giao diện người dùng và các tương tác người dùng cơ bản.
