@@ -24,7 +24,8 @@ class _NoteDetailsPageState extends State<NoteDetailsPage> {
     super.initState();
     // Khởi tạo Controller với dữ liệu hiện có hoặc rỗng
     _titleController = TextEditingController(text: widget.note?.title ?? '');
-    _contentController = TextEditingController(text: widget.note?.content ?? '');
+    _contentController =
+        TextEditingController(text: widget.note?.content ?? '');
   }
 
   @override
@@ -35,23 +36,26 @@ class _NoteDetailsPageState extends State<NoteDetailsPage> {
   }
 
   // Hàm lưu Note
-  void _saveNote() {
-    if (_formKey.currentState!.validate()) {
-      final newNote = Note(
-        id: widget.note?.id, // Giữ ID nếu đang chỉnh sửa
-        title: _titleController.text,
-        content: _contentController.text,
-        timestamp: DateTime.now(), // Cập nhật thời gian hiện tại
-      );
+  Future<void> _saveNote() async {
+    if (!_formKey.currentState!.validate()) return;
 
-      _firestoreService.saveNote(newNote).then((_) {
-        Navigator.pop(context); // Quay lại trang trước sau khi lưu
-      }).catchError((error) {
-        // Xử lý lỗi (ví dụ: hiển thị SnackBar)
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Lưu thất bại: $error')),
-        );
-      });
+    final newNote = Note(
+      id: widget.note?.id, // Giữ ID nếu đang chỉnh sửa
+      title: _titleController.text,
+      content: _contentController.text,
+      timestamp: DateTime.now(), // Cập nhật thời gian hiện tại
+    );
+
+    try {
+      await _firestoreService.saveNote(newNote);
+      if (!mounted) return;
+      Navigator.pop(context); // Quay lại trang trước sau khi lưu
+    } catch (error) {
+      if (!mounted) return;
+      // Xử lý lỗi (ví dụ: hiển thị SnackBar)
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Lưu thất bại: $error')),
+      );
     }
   }
 

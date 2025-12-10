@@ -19,6 +19,10 @@ class NoteCard extends StatelessWidget {
     final formattedTime =
         '${note.timestamp.day}/${note.timestamp.month}/${note.timestamp.year} ${note.timestamp.hour}:${note.timestamp.minute.toString().padLeft(2, '0')}';
 
+    final contentSnippet = note.content.length > 50
+        ? '${note.content.substring(0, 50)}...'
+        : note.content;
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: ListTile(
@@ -29,7 +33,7 @@ class NoteCard extends StatelessWidget {
         ),
         subtitle: Text(
           // Hiển thị một phần nội dung và thời gian
-          '${note.content.length > 50 ? note.content.substring(0, 50) + '...' : note.content}\n$formattedTime',
+          '$contentSnippet\n$formattedTime',
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),

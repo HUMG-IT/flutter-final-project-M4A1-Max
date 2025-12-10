@@ -119,7 +119,7 @@ Bài tập lớn nhằm:
 - **Xóa ghi chú**: Xóa với xác nhận
 - **Tìm kiếm cơ bản**: Lọc ghi chú theo tiêu đề
 
-## Hướng dẫn cài đặt
+## 1. Hướng dẫn cài đặt
 
 ### 1. Yêu cầu hệ thống
 - Flutter SDK (phiên bản 3.0 trở lên)
@@ -129,27 +129,41 @@ Bài tập lớn nhằm:
 
 ### 2. Các bước cài đặt
 
+
+#### 1. Clone repository
 ```bash
-# 1. Clone repository
-git clone <đường-dẫn-repository>
-cd <tên-thư-mục>
+git clone https://github.com/HUMG-IT/flutter-final-project-M4A1-Max.git
+cd flutter-final-project-M4A1-Max
 ```
+
+##### 2. Cài đặt dependencies
 ```bash
-# 2. Cài đặt dependencies
 flutter pub get
 ```
+
+##### 3. Cấu hình Firebase
+ - Tạo project trên Firebase Console
+ - Kích hoạt Firestore Database
+ - Thêm ứng dụng Flutter
+ - Tải file google-services.json
 ```bash
-# 3. Cấu hình Firebase
-# - Tạo project trên Firebase Console
-# - Kích hoạt Firestore Database
-# - Thêm ứng dụng Flutter
-# - Tải file google-services.json
 flutterfire configure
 ```
+
+#### 4. Chạy ứng dụng
 ```bash
-# 4. Chạy ứng dụng
 flutter run
 ```
+### 3. Tự đánh giá điểm: 8/10
+##### Cơ sở đánh giá: Ứng dụng đáp ứng các tiêu chí về build thành công, kiểm thử tự động, CRUD đầy đủ và tích hợp hoàn chỉnh với Firebase/Cloud Firestore, bao gồm cả xử lý lỗi cơ bản.
+
+- Đạt 5/10: Build thành công và kiểm thử cơ bản chạy được (GitHub Actions Success).
+
+- Đạt 6/10: Hoàn thành CRUD cơ bản cho đối tượng Note.
+
+- Đạt 7/10: Hoàn thành CRUD và quản lý trạng thái (real-time update, phản hồi thân thiện).
+
+- Đạt 8/10: Hoàn thành CRUD, trạng thái, và tích hợp API/CSDL (Cloud Firestore) với xử lý lỗi cơ bản.
 ## Yêu cầu nộp bài
 - **Source code**: Đẩy toàn bộ mã nguồn lên GitHub repository cá nhân và chia sẻ quyền truy cập.
 - **Kiểm thử tự động**: Sinh viên cần viết các bài kiểm thử tự động cho ứng dụng. Các bài kiểm thử cần được tổ chức rõ ràng và dễ hiểu trong thư mục `test` với hậu tố `_test.dart`. Các bài kiểm thử đơn vị (unit test) cần kiểm tra các chức năng cơ bản của ứng dụng và đảm bảo chất lượng mã nguồn. Kiểm thử UI (widget test) cần được viết để kiểm tra giao diện người dùng và các tương tác người dùng cơ bản.
